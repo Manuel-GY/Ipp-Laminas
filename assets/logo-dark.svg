@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 130" fill="none">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="shieldGrad" x1="10" y1="10" x2="110" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00D2FF"/>
+      <stop offset="50%" stop-color="#0072FF"/>
+      <stop offset="100%" stop-color="#00388A"/>
+    </linearGradient>
+    <linearGradient id="glassGrad1" x1="25" y1="20" x2="95" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0369A1" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="glassGrad2" x1="45" y1="25" x2="115" y2="105" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34D399" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="accentSun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Logo Mark: Modern Architectural Shield with Multi-layer Glass Sheets -->
+  <g transform="translate(10, 10)">
+    <!-- Ambient glow behind shield -->
+    <path d="M60 5 L105 28 V72 C105 98 60 115 60 115 C60 115 15 98 15 72 V28 Z" fill="#0284C7" opacity="0.25" filter="url(#glow)"/>
+
+    <!-- Back Layer: Solar Control Film (Deep Blue / Heat Protection) -->
+    <path d="M48 18 L92 36 V76 C92 95 55 108 55 108 L38 98 V40 Z" fill="url(#shieldGrad)" opacity="0.6"/>
+
+    <!-- Middle Layer: Frosted Privacy Film (Empavonado / Architectural Glass) -->
+    <path d="M38 22 L82 40 V82 C82 98 48 111 48 111 L28 100 V44 Z" fill="url(#glassGrad1)" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 2"/>
+
+    <!-- Front Layer: High Impact Safety Film (Lámina de Seguridad / Reinforced Diamond Shield) -->
+    <path d="M58 8 L98 28 V70 C98 92 58 108 58 108 C58 108 18 92 18 70 V28 Z" fill="url(#shieldGrad)" stroke="#67E8F9" stroke-width="2.5"/>
+
+    <!-- Light reflection highlight streak across the glass -->
+    <path d="M26 36 L52 22 L75 80 L52 92 Z" fill="#FFFFFF" opacity="0.22"/>
+    <path d="M72 32 L84 26 L88 45 L76 52 Z" fill="#FFFFFF" opacity="0.35"/>
+
+    <!-- Solar Ray / Core Protection Accent (Sun/Energy deflection) -->
+    <circle cx="85" cy="24" r="5" fill="url(#accentSun)"/>
+    <line x1="85" y1="14" x2="85" y2="17" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+    <line x1="95" y1="24" x2="92" y2="24" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+    <line x1="92" y1="17" x2="90" y2="19" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Modern Monogram "i" dot & security lock indicator inside glass -->
+    <circle cx="58" cy="42" r="4.5" fill="#FFFFFF"/>
+    <!-- Central reinforcement line -->
+    <path d="M58 52 V82" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M46 64 L58 54 L70 64" fill="none" stroke="#67E8F9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Typography / Wordmark -->
+  <!-- "IPP" -->
+  <text x="142" y="68" font-family="'Montserrat', 'Inter', 'Segoe UI', sans-serif" font-weight="900" font-size="52" letter-spacing="4" fill="#FFFFFF">
+    IPP
+  </text>
+  <text x="272" y="68" font-family="'Montserrat', 'Inter', 'Segoe UI', sans-serif" font-weight="800" font-size="44" letter-spacing="3" fill="#38BDF8">
+    LÁMINAS
+  </text>
+
+  <!-- Premium Tagline Divider Line -->
+  <rect x="144" y="80" width="330" height="2" rx="1" fill="url(#shieldGrad)"/>
+
+  <!-- Subtitle: Pillars of the business -->
+  <text x="144" y="99" font-family="'Inter', 'Segoe UI', sans-serif" font-weight="600" font-size="12" letter-spacing="3.2" fill="#94A3B8">
+    SEGURIDAD  ·  EMPAVONADOS  ·  SOLAR
+  </text>
+</svg>
