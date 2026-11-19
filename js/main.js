@@ -210,6 +210,23 @@ function initLightbox() {
     if (e.key === 'ArrowLeft') changeLightboxImage(-1);
     if (e.key === 'ArrowRight') changeLightboxImage(1);
   });
+
+  // Soporte de deslizamiento táctil en móviles (Touch Swipe)
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  modal.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  modal.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchEndX - touchStartX;
+    if (Math.abs(diff) > 45) {
+      if (diff < 0) changeLightboxImage(1);
+      else changeLightboxImage(-1);
+    }
+  }, { passive: true });
 }
 
 window.openLightbox = function(index) {
