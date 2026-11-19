@@ -1,0 +1,10 @@
+{
+  "name": "ipp-laminas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "IPP Láminas - Cristales Arquitectónicos",
+  "scripts": {
+    "build": "echo 'Static assets ready'",
+    "deploy": "wrangler pages deploy ."
+  }
+}
