@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStudioTabs();
   initPhotoWall();
   initSmoothScroll();
+  initFaqAccordion();
 });
 
 /* ==========================================================================
@@ -265,6 +266,38 @@ function initSmoothScroll() {
           top: offsetPosition,
           behavior: 'smooth'
         });
+      }
+    });
+  });
+}
+
+/* ==========================================================================
+   5. ACORDEÓN DE PREGUNTAS FRECUENTES (FAQ)
+   ========================================================================== */
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const btn = item.querySelector('.faq-question-btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+          const otherBtn = otherItem.querySelector('.faq-question-btn');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      if (isActive) {
+        item.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
       }
     });
   });
