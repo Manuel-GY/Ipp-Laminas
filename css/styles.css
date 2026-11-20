@@ -1002,25 +1002,80 @@ button, input, select, textarea {
 /* ==========================================================================
    FOOTER MINIMALISTA
    ========================================================================== */
+/**
+ * @component Footer Grid & Navigation Architecture
+ * @rationale Transformed 2-element split into a cohesive 4-column balanced layout:
+ * [Brand & Socials] | [Navegación] | [Especialidades] | [Tarjeta de Contacto Comercial].
+ * Eliminates dead central space, optimizes information density, and tightens vertical margins.
+ */
 .arch-footer {
   background: var(--bg-main);
   border-top: 1px solid var(--border-hairline);
-  padding: 4.5rem 0 2rem 0;
+  padding: 3.5rem 0 1.8rem 0;
 }
 
 .footer-top-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  padding-bottom: 3rem;
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr 1fr 1.3fr;
+  align-items: start;
+  gap: 2.5rem;
+  padding-bottom: 2.2rem;
   border-bottom: 1px solid var(--border-hairline);
-  margin-bottom: 2rem;
+  margin-bottom: 1.6rem;
+}
+
+@media (max-width: 1024px) {
+  .footer-top-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-top-row {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
 }
 
 .footer-brand-info {
-  max-width: 420px;
+  max-width: 380px;
+}
+
+.footer-nav-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-col-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--accent-cyan);
+  margin-bottom: 0.9rem;
+}
+
+.footer-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav-link {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.footer-nav-link:hover {
+  color: var(--text-main);
+  transform: translateX(3px);
 }
 
 .footer-brand-p {
@@ -1069,12 +1124,18 @@ button, input, select, textarea {
 
 .footer-cta-card {
   display: flex;
-  align-items: center;
-  gap: 1.25rem;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
   background: var(--bg-surface);
   border: 1px solid var(--border-hairline);
-  padding: 1.25rem 1.8rem;
+  padding: 1.35rem 1.6rem;
   border-radius: var(--radius-md);
+}
+
+.footer-cta-card .btn-wa-header {
+  width: 100%;
+  justify-content: center;
 }
 
 .footer-cta-phone {
@@ -1494,19 +1555,17 @@ button, input, select, textarea {
 
   /* Footer en móvil */
   .arch-footer {
-    padding: 3.5rem 0 2rem 0;
+    padding: 2.8rem 0 1.8rem 0;
   }
 
   .footer-top-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
-    padding-bottom: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+    padding-bottom: 1.8rem;
   }
 
   .footer-cta-card {
     width: 100%;
-    justify-content: space-between;
   }
 
   .footer-bottom-copy {

@@ -19,7 +19,7 @@
   <meta name="theme-color" content="#0B0F17" />
   
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="stylesheet" href="css/styles.css?v=20261120_v9" />
+  <link rel="stylesheet" href="css/styles.css?v=20261120_v10" />
   <!-- Estilos críticos para carga instantánea de formulario y botones de contacto -->
   <style>
     /* Arquitectura Senior: Tokens calibrados para evitar resplandor/halo de fósforo en fondos oscuros */
@@ -656,10 +656,34 @@
           </div>
         </div>
 
+        <!-- Columna 2: Navegación Rápida -->
+        <div class="footer-nav-col">
+          <div class="footer-col-title">Navegación</div>
+          <ul class="footer-nav-links">
+            <li><a href="#soluciones" class="footer-nav-link">Soluciones Técnicas</a></li>
+            <li><a href="#galeria" class="footer-nav-link">Obras y Portafolio</a></li>
+            <li><a href="#contacto" class="footer-nav-link">Cotizar por Email</a></li>
+            <li><a href="#faq" class="footer-nav-link">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Especialidades -->
+        <div class="footer-nav-col">
+          <div class="footer-col-title">Especialidades</div>
+          <ul class="footer-nav-links">
+            <li><a href="#soluciones" class="footer-nav-link" onclick="selectStudioTab('seguridad')">Láminas de Seguridad</a></li>
+            <li><a href="#soluciones" class="footer-nav-link" onclick="selectStudioTab('empavonado')">Empavonados Privacidad</a></li>
+            <li><a href="#soluciones" class="footer-nav-link" onclick="selectStudioTab('solar')">Control Solar & UV</a></li>
+            <li><a href="#garantia" class="footer-nav-link">Garantía Certificada</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 4: Atención & Contacto -->
         <div class="footer-cta-card">
           <div>
-            <div style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">CONSULTAS Y VENTAS</div>
+            <div style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">Atención Directa</div>
             <div class="footer-cta-phone">+56 9 5174 5887</div>
+            <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem;">Santiago y Regiones</div>
           </div>
           <a href="https://wa.me/56951745887" target="_blank" rel="noopener noreferrer" class="btn-wa-header">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
