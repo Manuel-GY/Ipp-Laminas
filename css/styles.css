@@ -1215,8 +1215,13 @@ button, input, select, textarea {
    ========================================================================== */
 
 @media (max-width: 767px) {
+  /**
+   * @viewport Mobile Ergonomics Optimization
+   * Removal of persistent floating chrome: eliminates artificial body padding offset,
+   * restoring 100% native viewport real estate for uncluttered vertical scroll.
+   */
   body {
-    padding-bottom: 74px; /* Evita que la barra fija tape el pie de página */
+    padding-bottom: 0 !important;
   }
 
   /* Ocultar el botón flotante circular gigante en móvil para no colisionar con la barra inferior */
