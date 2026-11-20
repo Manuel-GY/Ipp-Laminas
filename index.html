@@ -19,38 +19,30 @@
   <meta name="theme-color" content="#0B0F17" />
   
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="stylesheet" href="css/styles.css?v=20261120_v3" />
-  <!-- Estilos críticos para carga instantánea de formulario y pastillas -->
+  <link rel="stylesheet" href="css/styles.css?v=20261120_v4" />
+  <!-- Estilos críticos para carga instantánea de formulario y botones de contacto -->
   <style>
-    .hero-pills-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.8rem;
-    }
-    .hero-chip-pill {
+    /* Arquitectura Senior: Tokens calibrados para evitar resplandor/halo de fósforo en fondos oscuros */
+    .form-submit-btn {
       display: inline-flex !important;
       align-items: center !important;
       gap: 0.65rem !important;
-      background: rgba(22, 32, 50, 0.95) !important;
-      border: 1px solid rgba(56, 189, 248, 0.4) !important;
-      border-radius: 9999px !important;
-      padding: 0.65rem 1.25rem !important;
+      background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%) !important;
       color: #FFFFFF !important;
+      padding: 0.95rem 1.8rem !important;
+      border-radius: 9999px !important;
       font-weight: 700 !important;
-      font-size: 0.92rem !important;
-      text-decoration: none !important;
-      transition: all 0.2s ease !important;
+      font-size: 0.95rem !important;
+      border: 1px solid rgba(56, 189, 248, 0.3) !important;
+      box-shadow: 0 4px 16px rgba(2, 132, 199, 0.25) !important;
       cursor: pointer !important;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
-    .hero-chip-pill:hover {
-      background: rgba(56, 189, 248, 0.25) !important;
-      border-color: #38BDF8 !important;
+    .form-submit-btn:hover {
+      background: linear-gradient(135deg, #0369A1 0%, #075985 100%) !important;
       transform: translateY(-2px) !important;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35) !important;
     }
-    .chip-pill-icon { font-size: 1.15rem !important; }
-    .chip-pill-text { color: #FFFFFF !important; font-weight: 700 !important; }
-    .chip-pill-arrow { color: #38BDF8 !important; font-weight: 800 !important; margin-left: 0.35rem !important; }
 
     /* Formulario de Contacto Seguro */
     .contact-form {
@@ -452,7 +444,7 @@
           </div>
 
           <div class="form-action-row">
-            <button type="submit" class="btn-hero-primary form-submit-btn" id="form-submit-btn">
+            <button type="submit" class="form-submit-btn" id="form-submit-btn">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
               <span>Enviar a ipplaminas@gmail.com</span>
             </button>
@@ -678,6 +670,6 @@
     </a>
   </div>
 
-  <script src="js/main.js?v=20261120_v3"></script>
+  <script src="js/main.js?v=20261120_v4"></script>
 </body>
 </html>

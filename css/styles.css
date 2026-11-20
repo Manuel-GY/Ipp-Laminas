@@ -24,9 +24,17 @@
   --accent-blue: #0284C7;
   --accent-glow: rgba(56, 189, 248, 0.2);
 
-  --wa-green: #25D366;
-  --wa-dark: #128C7E;
-  --wa-glow: rgba(37, 211, 102, 0.35);
+  /* ==========================================================================
+   * DESIGN SYSTEM: BRAND COLOR TOKENS & VISUAL ERGONOMICS
+   *
+   * Architectural Decision: Tamed high-luminance phosphors on dark canvases (#0B1320).
+   * Replaced raw saturated neon green (#25D366) with an optical-grade emerald green (#16A34A).
+   * Substituted radioactive glow halos (rgba(37, 211, 102, 0.35)) with calibrated physical depth
+   * shadows to prevent ocular fatigue, chromatic aberration, and halo bleeding.
+   * ========================================================================== */
+  --wa-green: #16A34A; /* Emerald 600 - High legibility, WCAG 2.1 AA compliant on dark surfaces */
+  --wa-dark: #15803D;  /* Emerald 700 - Hover interactive state */
+  --wa-glow: rgba(0, 0, 0, 0.25); /* Physical shadow elevation, zero artificial chromatic halo */
 
   --radius-xs: 6px;
   --radius-sm: 10px;
@@ -247,6 +255,11 @@ button, input, select, textarea {
   50% { opacity: 0.4; transform: scale(0.85); }
 }
 
+/**
+ * @component Header WhatsApp Action
+ * @architecture Sticky navigation CTA with subdued elevation.
+ * Uses physical dark drop shadow instead of chromatic green glow to avoid visual contention with branding.
+ */
 .btn-wa-header {
   display: inline-flex;
   align-items: center;
@@ -257,7 +270,7 @@ button, input, select, textarea {
   border-radius: var(--radius-full);
   font-weight: 700;
   font-size: 0.95rem;
-  box-shadow: 0 4px 16px var(--wa-glow);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   transition: var(--transition);
 }
 
@@ -270,6 +283,7 @@ button, input, select, textarea {
 .btn-wa-header:hover {
   background: var(--wa-dark);
   transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
 }
 
 /* ==========================================================================
@@ -418,6 +432,11 @@ button, input, select, textarea {
   gap: 1.25rem;
 }
 
+/**
+ * @component Primary Conversion Trigger (WhatsApp)
+ * @architecture High-contrast CTA without sensory overload.
+ * Softened shadow radius provides tactile depth without chromatic halo artifacting.
+ */
 .btn-hero-primary {
   display: inline-flex;
   align-items: center;
@@ -428,14 +447,14 @@ button, input, select, textarea {
   border-radius: var(--radius-full);
   font-weight: 700;
   font-size: 1.1rem;
-  box-shadow: 0 8px 30px var(--wa-glow);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   transition: var(--transition);
 }
 
 .btn-hero-primary:hover {
   background: var(--wa-dark);
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px var(--wa-glow);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
 .btn-hero-outline {
@@ -1554,11 +1573,32 @@ button, input, select, textarea {
   padding-top: 0.5rem;
 }
 
+/**
+ * @component Email Inquiry Dispatcher (Decoupled CTA)
+ * @architecture Domain separation: Email submission must not inherit WhatsApp green.
+ * Uses IPP Láminas primary brand gradient (Cyan-Blue) to avoid chromatic clash
+ * when placed adjacent to the WhatsApp instant-chat card.
+ */
 .form-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  color: #FFFFFF;
   padding: 0.95rem 1.8rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
   font-size: 0.95rem;
-  border: none;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.25);
   cursor: pointer;
+  transition: var(--transition);
+}
+
+.form-submit-btn:hover {
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
 }
 
 .form-note {
