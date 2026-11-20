@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPhotoWall();
   initSmoothScroll();
   initFaqAccordion();
+  initContactForm();
 });
 
 /* ==========================================================================
@@ -317,5 +318,62 @@ function initFaqAccordion() {
         btn.setAttribute('aria-expanded', 'true');
       }
     });
+  });
+}
+
+/* ==========================================================================
+   6. CAJA DE CONSULTAS A IPPLAMINAS@GMAIL.COM (FORM VIA AJAX)
+   ========================================================================== */
+function initContactForm() {
+  const form = document.getElementById('contact-form');
+  const statusEl = document.getElementById('form-status');
+  const submitBtn = document.getElementById('form-submit-btn');
+
+  if (!form) return;
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.7';
+      submitBtn.querySelector('span').textContent = 'Enviando a ipplaminas@gmail.com...';
+    }
+
+    const formData = new FormData(form);
+    const dataObj = {};
+    formData.forEach((value, key) => { dataObj[key] = value; });
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/ipplaminas@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(dataObj)
+      });
+
+      if (response.ok) {
+        if (statusEl) {
+          statusEl.className = 'form-status-alert success';
+          statusEl.style.display = 'block';
+          statusEl.innerHTML = '✅ <strong>¡Consulta enviada con éxito!</strong><br>Hemos recibido tus datos directamente en <code>ipplaminas@gmail.com</code>. Te contactaremos a la brevedad.';
+        }
+        form.reset();
+      } else {
+        throw new Error('Error al enviar la consulta');
+      }
+    } catch (err) {
+      // Si falla AJAX, enviamos el formulario de forma estándar como fallback
+      form.submit();
+      return;
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitBtn.querySelector('span').textContent = 'Enviar Consulta a ipplaminas@gmail.com';
+      }
+    }
   });
 }
