@@ -287,14 +287,20 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   NUEVO HERO: CINEMÁTICO INMERSIVO CON ACCESOS DIRECTOS
+   HERO ERGONÓMICO Y PROPORCIONADO (ABOVE-THE-FOLD OPTIMIZADO)
    ========================================================================== */
+/**
+ * @section Hero Component (Viewport & Scale Architecture)
+ * @rationale Replaced oversized 82vh billboard layout with an ergonomic 56vh hero.
+ * Prevents "false bottom" syndrome by allowing the interactive solution study to peek
+ * directly above the fold, providing immediate visual cues to scroll.
+ */
 .cinematic-hero {
   position: relative;
-  min-height: 82vh;
+  min-height: 56vh;
   display: flex;
   align-items: center;
-  padding: 5rem 0 4.5rem 0;
+  padding: 4.2rem 0 3.8rem 0;
   overflow: hidden;
 }
 
@@ -302,7 +308,7 @@ button, input, select, textarea {
   position: absolute;
   inset: 0;
   background: 
-    linear-gradient(to bottom, rgba(11, 15, 23, 0.7) 0%, rgba(11, 15, 23, 0.94) 100%),
+    linear-gradient(to bottom, rgba(11, 15, 23, 0.72) 0%, rgba(11, 15, 23, 0.95) 100%),
     url('../assets/gallery/galeria-01.jpg') center/cover no-repeat;
   z-index: 0;
   filter: contrast(105%) brightness(90%);
@@ -317,7 +323,7 @@ button, input, select, textarea {
 .hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 980px;
+  max-width: 840px;
 }
 
 .hero-eyebrow {
@@ -333,15 +339,15 @@ button, input, select, textarea {
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .hero-big-title {
-  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  font-size: clamp(2rem, 3.8vw, 3.15rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.25rem;
-  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+  line-height: 1.15;
 }
 
 .hero-gradient-span {
@@ -351,11 +357,11 @@ button, input, select, textarea {
 }
 
 .hero-lead-text {
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
   color: var(--text-muted);
-  max-width: 740px;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
+  max-width: 660px;
+  margin-bottom: 2rem;
+  line-height: 1.55;
 }
 
 /* Tarjetas rápidas dentro del hero */
@@ -443,17 +449,17 @@ button, input, select, textarea {
   gap: 0.75rem;
   background: var(--wa-green);
   color: #FFFFFF;
-  padding: 1.05rem 2.2rem;
+  padding: 0.9rem 1.9rem;
   border-radius: var(--radius-full);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   transition: var(--transition);
 }
 
 .btn-hero-primary:hover {
   background: var(--wa-dark);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
@@ -464,16 +470,28 @@ button, input, select, textarea {
   background: var(--bg-surface);
   border: 1px solid var(--border-hairline);
   color: var(--text-main);
-  padding: 1.05rem 1.8rem;
+  padding: 0.9rem 1.6rem;
   border-radius: var(--radius-full);
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: var(--transition);
 }
 
 .btn-hero-outline:hover {
   border-color: var(--accent-cyan);
   background: var(--bg-surface-elevated);
+}
+
+.btn-hero-ghost {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #F8FAFC;
+}
+
+.btn-hero-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #FFFFFF;
 }
 
 /* ==========================================================================
@@ -1261,15 +1279,16 @@ button, input, select, textarea {
     display: none;
   }
 
-  /* Ajustes en Hero */
+  /* Ajustes en Hero móvil */
   .cinematic-hero {
-    padding: 4.5rem 0 3rem 0;
+    min-height: auto;
+    padding: 3.2rem 0 2.5rem 0;
   }
 
   .hero-big-title {
-    font-size: clamp(1.85rem, 8vw, 2.5rem);
-    line-height: 1.15;
-    margin-bottom: 1rem;
+    font-size: clamp(1.7rem, 7.5vw, 2.2rem);
+    line-height: 1.18;
+    margin-bottom: 0.85rem;
   }
 
   .hero-lead-text {
