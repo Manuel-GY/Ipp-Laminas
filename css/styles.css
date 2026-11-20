@@ -275,8 +275,8 @@ button, input, select, textarea {
 }
 
 .btn-wa-header svg {
-  width: 23px;
-  height: 23px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
 }
 
@@ -455,6 +455,12 @@ button, input, select, textarea {
   font-size: 1rem;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   transition: var(--transition);
+}
+
+.btn-hero-primary svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
 }
 
 .btn-hero-primary:hover {
