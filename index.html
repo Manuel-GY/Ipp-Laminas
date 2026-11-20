@@ -19,7 +19,99 @@
   <meta name="theme-color" content="#0B0F17" />
   
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=20261120_v3" />
+  <!-- Estilos críticos para carga instantánea de formulario y pastillas -->
+  <style>
+    .hero-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.8rem;
+    }
+    .hero-chip-pill {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 0.65rem !important;
+      background: rgba(22, 32, 50, 0.95) !important;
+      border: 1px solid rgba(56, 189, 248, 0.4) !important;
+      border-radius: 9999px !important;
+      padding: 0.65rem 1.25rem !important;
+      color: #FFFFFF !important;
+      font-weight: 700 !important;
+      font-size: 0.92rem !important;
+      text-decoration: none !important;
+      transition: all 0.2s ease !important;
+      cursor: pointer !important;
+    }
+    .hero-chip-pill:hover {
+      background: rgba(56, 189, 248, 0.25) !important;
+      border-color: #38BDF8 !important;
+      transform: translateY(-2px) !important;
+    }
+    .chip-pill-icon { font-size: 1.15rem !important; }
+    .chip-pill-text { color: #FFFFFF !important; font-weight: 700 !important; }
+    .chip-pill-arrow { color: #38BDF8 !important; font-weight: 800 !important; margin-left: 0.35rem !important; }
+
+    /* Formulario de Contacto Seguro */
+    .contact-form {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 1.25rem !important;
+      background: #0B0F17 !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      border-radius: 20px !important;
+      padding: 2.2rem !important;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4) !important;
+    }
+    [data-theme="light"] .contact-form {
+      background: #FFFFFF !important;
+      border-color: rgba(15, 23, 42, 0.12) !important;
+    }
+    .form-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+      gap: 1.2rem !important;
+    }
+    .form-group {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.45rem !important;
+    }
+    .form-label {
+      display: block !important;
+      font-size: 0.88rem !important;
+      font-weight: 600 !important;
+      color: #F8FAFC !important;
+    }
+    [data-theme="light"] .form-label {
+      color: #0B1320 !important;
+    }
+    .form-input, .form-select, .form-textarea {
+      display: block !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+      background: #111827 !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      border-radius: 10px !important;
+      color: #FFFFFF !important;
+      padding: 0.85rem 1rem !important;
+      font-size: 1rem !important;
+      font-family: inherit !important;
+      outline: none !important;
+    }
+    [data-theme="light"] .form-input,
+    [data-theme="light"] .form-select,
+    [data-theme="light"] .form-textarea {
+      background: #F4F6F9 !important;
+      border-color: rgba(15, 23, 42, 0.15) !important;
+      color: #0B1320 !important;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: #38BDF8 !important;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2) !important;
+    }
+    .form-textarea { resize: vertical !important; min-height: 100px !important; }
+  </style>
 </head>
 <body>
 
@@ -91,30 +183,10 @@
         </h1>
 
         <p class="hero-lead-text">
-          Películas arquitectónicas para cristales. Protección certificada contra robos, privacidad y control térmico en Santiago y Regiones.
+          Películas arquitectónicas para cristales en Santiago y Regiones. Protección certificada contra robos, privacidad y control térmico.
         </p>
 
-        <!-- 3 Accesos directos a los pilares de servicio (Minimalistas) -->
-        <div class="hero-trio-chips">
-          <button class="hero-chip-card" onclick="selectStudioTab('seguridad')" type="button">
-            <span class="hero-chip-icon">🛡️</span>
-            <span class="hero-chip-title">Láminas de Seguridad</span>
-            <span class="hero-chip-arrow">→</span>
-          </button>
-
-          <button class="hero-chip-card" onclick="selectStudioTab('empavonado')" type="button">
-            <span class="hero-chip-icon">🏢</span>
-            <span class="hero-chip-title">Empavonados</span>
-            <span class="hero-chip-arrow">→</span>
-          </button>
-
-          <button class="hero-chip-card" onclick="selectStudioTab('solar')" type="button">
-            <span class="hero-chip-icon">☀️</span>
-            <span class="hero-chip-title">Control Solar & UV</span>
-            <span class="hero-chip-arrow">→</span>
-          </button>
-        </div>
-
+        <!-- Botones de Acción Inmediatos (Arriba para no ser tapados) -->
         <div class="hero-cta-row">
           <a href="https://wa.me/56951745887?text=Hola%20IPP%20L%C3%A1minas,%20necesito%20asesor%C3%ADa%20y%20cotizaci%C3%B3n%20para%20mis%20cristales." target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -129,8 +201,29 @@
           </a>
 
           <a href="#galeria" class="btn-hero-outline btn-hero-ghost">
-            <span>Ver Fotos</span>
+            <span>Ver Obras</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+          </a>
+        </div>
+
+        <!-- 3 Pastillas Interactivas a los Pilares (Siempre visibles con texto blanco brillante) -->
+        <div class="hero-pills-row">
+          <a href="#soluciones" class="hero-chip-pill" onclick="selectStudioTab('seguridad')">
+            <span class="chip-pill-icon">🛡️</span>
+            <span class="chip-pill-text">Láminas de Seguridad</span>
+            <span class="chip-pill-arrow">→</span>
+          </a>
+
+          <a href="#soluciones" class="hero-chip-pill" onclick="selectStudioTab('empavonado')">
+            <span class="chip-pill-icon">🏢</span>
+            <span class="chip-pill-text">Empavonados</span>
+            <span class="chip-pill-arrow">→</span>
+          </a>
+
+          <a href="#soluciones" class="hero-chip-pill" onclick="selectStudioTab('solar')">
+            <span class="chip-pill-icon">☀️</span>
+            <span class="chip-pill-text">Control Solar & UV</span>
+            <span class="chip-pill-arrow">→</span>
           </a>
         </div>
       </div>
@@ -609,6 +702,6 @@
     </a>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=20261120_v3"></script>
 </body>
 </html>

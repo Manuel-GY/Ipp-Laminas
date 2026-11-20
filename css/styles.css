@@ -1712,3 +1712,66 @@ button, input, select, textarea {
     text-align: center;
   }
 }
+
+.hero-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.8rem;
+}
+
+.hero-chip-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+  background: var(--bg-surface-elevated) !important;
+  border: 1px solid var(--border-active) !important;
+  border-radius: var(--radius-full) !important;
+  padding: 0.65rem 1.25rem !important;
+  color: var(--text-main) !important;
+  font-weight: 700 !important;
+  font-size: 0.92rem !important;
+  text-decoration: none !important;
+  transition: var(--transition) !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.hero-chip-pill:hover {
+  background: rgba(56, 189, 248, 0.25) !important;
+  border-color: var(--accent-cyan) !important;
+  transform: translateY(-2px) !important;
+}
+
+.chip-pill-icon {
+  font-size: 1.15rem !important;
+}
+
+.chip-pill-text {
+  color: var(--text-main) !important;
+  font-weight: 700 !important;
+}
+
+.chip-pill-arrow {
+  color: var(--accent-cyan) !important;
+  font-weight: 800 !important;
+  margin-left: 0.35rem !important;
+  transition: transform 0.2s ease;
+}
+
+.hero-chip-pill:hover .chip-pill-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 767px) {
+  .hero-pills-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.6rem;
+  }
+  .hero-chip-pill {
+    width: 100%;
+    justify-content: space-between !important;
+    padding: 0.8rem 1.15rem !important;
+  }
+}
