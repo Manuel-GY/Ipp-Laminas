@@ -354,20 +354,33 @@ function initContactForm() {
         body: JSON.stringify(dataObj)
       });
 
-      if (response.ok) {
+      const resData = await response.json().catch(() => ({}));
+
+      // FormSubmit responde con HTTP 200 incluso cuando el estado es success: false (ej: requiere activación)
+      const isSuccess = response.ok && (resData.success === 'true' || resData.success === true);
+
+      if (isSuccess) {
         if (statusEl) {
           statusEl.className = 'form-status-alert success';
           statusEl.style.display = 'block';
           statusEl.innerHTML = '✅ <strong>¡Consulta enviada con éxito!</strong><br>Hemos recibido tus datos directamente en <code>ipplaminas@gmail.com</code>. Te contactaremos a la brevedad.';
         }
         form.reset();
+      } else if (resData.message && resData.message.includes('Activation')) {
+        if (statusEl) {
+          statusEl.className = 'form-status-alert error';
+          statusEl.style.display = 'block';
+          statusEl.innerHTML = '⚠️ <strong>Activación inicial requerida en la casilla:</strong><br>FormSubmit envió un correo de confirmación a <code>ipplaminas@gmail.com</code>. Abre ese correo y haz clic en <strong>"Activate Form"</strong> (se hace una sola vez) para comenzar a recibir todas las consultas.';
+        }
       } else {
-        throw new Error('Error al enviar la consulta');
+        throw new Error(resData.message || 'Error al enviar la consulta');
       }
     } catch (err) {
-      // Si falla AJAX, enviamos el formulario de forma estándar como fallback
-      form.submit();
-      return;
+      if (statusEl) {
+        statusEl.className = 'form-status-alert error';
+        statusEl.style.display = 'block';
+        statusEl.innerHTML = '⚠️ <strong>Hubo un problema al procesar el envío:</strong><br>' + (err.message || 'Por favor contáctanos directamente a nuestro WhatsApp +56 9 5174 5887 o al correo ipplaminas@gmail.com.');
+      }
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
