@@ -140,17 +140,21 @@ button, input, select, textarea {
   align-items: center;
   justify-content: space-between;
   height: 76px;
+  gap: 1.25rem;
 }
 
 .brand-wrap {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0;
+  margin-right: 1.5rem;
 }
 
 .brand-logo-img {
-  height: 44px;
+  height: 42px;
   width: auto;
+  max-width: 175px;
 }
 
 [data-theme="light"] .logo-dark-version { display: none; }
@@ -161,7 +165,8 @@ button, input, select, textarea {
 .arch-nav {
   display: none;
   align-items: center;
-  gap: 2.25rem;
+  gap: clamp(0.75rem, 1.3vw, 1.6rem);
+  flex-wrap: nowrap;
 }
 
 @media (min-width: 992px) {
@@ -171,11 +176,13 @@ button, input, select, textarea {
 }
 
 .arch-nav-link {
-  font-size: 0.92rem;
-  font-weight: 500;
+  font-size: 0.88rem;
+  font-weight: 600;
   color: var(--text-muted);
   position: relative;
-  padding: 0.35rem 0;
+  padding: 0.4rem 0.2rem;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
 }
 
 .arch-nav-link:hover {
@@ -200,21 +207,25 @@ button, input, select, textarea {
 .arch-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 .theme-pill-btn {
   background: var(--bg-surface);
   border: 1px solid var(--border-hairline);
   color: var(--text-main);
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: var(--transition);
+  flex-shrink: 0;
 }
 
 .theme-pill-btn:hover {
@@ -225,25 +236,27 @@ button, input, select, textarea {
 .wa-status-badge {
   display: none;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   background: var(--bg-surface);
   border: 1px solid var(--border-hairline);
-  padding: 0.5rem 1rem;
+  padding: 0.45rem 0.85rem;
   border-radius: var(--radius-full);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--text-main);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1250px) {
   .wa-status-badge {
     display: inline-flex;
   }
 }
 
 .radar-dot {
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
   background: var(--wa-green);
   border-radius: 50%;
   box-shadow: 0 0 10px var(--wa-green);
@@ -263,20 +276,22 @@ button, input, select, textarea {
 .btn-wa-header {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.55rem;
   background: var(--wa-green);
   color: #FFFFFF;
-  padding: 0.65rem 1.35rem;
+  padding: 0.6rem 1.15rem;
   border-radius: var(--radius-full);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   transition: var(--transition);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .btn-wa-header svg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
 }
 
@@ -286,21 +301,24 @@ button, input, select, textarea {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
 }
 
+@media (max-width: 1100px) {
+  .btn-wa-header-text {
+    display: none;
+  }
+  .btn-wa-header {
+    padding: 0.6rem 0.75rem;
+  }
+}
+
 /* ==========================================================================
    HERO ERGONÓMICO Y PROPORCIONADO (ABOVE-THE-FOLD OPTIMIZADO)
    ========================================================================== */
-/**
- * @section Hero Component (Viewport & Scale Architecture)
- * @rationale Replaced oversized 82vh billboard layout with an ergonomic 56vh hero.
- * Prevents "false bottom" syndrome by allowing the interactive solution study to peek
- * directly above the fold, providing immediate visual cues to scroll.
- */
 .cinematic-hero {
   position: relative;
-  min-height: 56vh;
+  min-height: 58vh;
   display: flex;
   align-items: center;
-  padding: 4.2rem 0 3.8rem 0;
+  padding: 3.5rem 0 3.5rem 0;
   overflow: hidden;
 }
 
@@ -308,7 +326,7 @@ button, input, select, textarea {
   position: absolute;
   inset: 0;
   background: 
-    linear-gradient(to bottom, rgba(11, 15, 23, 0.72) 0%, rgba(11, 15, 23, 0.95) 100%),
+    linear-gradient(to bottom, rgba(11, 15, 23, 0.76) 0%, rgba(11, 15, 23, 0.96) 100%),
     url('../assets/gallery/galeria-01.jpg') center/cover no-repeat;
   z-index: 0;
   filter: contrast(105%) brightness(90%);
@@ -316,38 +334,63 @@ button, input, select, textarea {
 
 [data-theme="light"] .hero-bg-scrim {
   background: 
-    linear-gradient(to bottom, rgba(244, 246, 249, 0.82) 0%, rgba(244, 246, 249, 0.97) 100%),
+    linear-gradient(to bottom, rgba(244, 246, 249, 0.85) 0%, rgba(244, 246, 249, 0.98) 100%),
     url('../assets/gallery/galeria-01.jpg') center/cover no-repeat;
 }
 
-.hero-inner {
+.hero-grid-split {
   position: relative;
   z-index: 1;
-  max-width: 840px;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+@media (min-width: 992px) {
+  .hero-grid-split {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.35rem 0.9rem;
+  padding: 0.35rem 0.85rem;
   background: rgba(56, 189, 248, 0.12);
   border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: var(--radius-full);
   color: var(--accent-cyan);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.1rem;
+  width: fit-content;
+}
+
+.hero-eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
 }
 
 .hero-big-title {
-  font-size: clamp(2rem, 3.8vw, 3.15rem);
+  font-size: clamp(2rem, 3.4vw, 2.9rem);
   font-weight: 800;
   letter-spacing: -0.025em;
   margin-bottom: 1rem;
-  line-height: 1.15;
+  line-height: 1.16;
+  color: var(--text-main);
 }
 
 .hero-gradient-span {
@@ -357,11 +400,95 @@ button, input, select, textarea {
 }
 
 .hero-lead-text {
-  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  font-size: clamp(0.98rem, 1.25vw, 1.12rem);
   color: var(--text-muted);
-  max-width: 660px;
-  margin-bottom: 2rem;
-  line-height: 1.55;
+  line-height: 1.6;
+  margin-bottom: 1.8rem;
+  max-width: 620px;
+}
+
+.hero-lead-text strong {
+  color: var(--text-main);
+}
+
+.hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.hero-trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.trust-check {
+  color: #10B981;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+/* Columna del Logo Oficial en el Banner Principal */
+.hero-brand-card-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-logo-box {
+  width: 100%;
+  max-width: 440px;
+  background: #000000;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45), 0 0 35px rgba(56, 189, 248, 0.15);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-logo-box:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.55), 0 0 45px rgba(56, 189, 248, 0.25);
+  transform: translateY(-3px);
+}
+
+.hero-logo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+@media (max-width: 991px) {
+  .hero-grid-split {
+    text-align: center;
+  }
+  .hero-eyebrow {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-cta-row {
+    justify-content: center;
+  }
+  .hero-trust-row {
+    justify-content: center;
+  }
+  .hero-brand-card-col {
+    order: -1;
+    margin-bottom: 1.5rem;
+  }
+  .hero-logo-box {
+    max-width: 320px;
+  }
 }
 
 /* Tarjetas rápidas dentro del hero */
