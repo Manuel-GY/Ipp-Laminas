@@ -330,10 +330,10 @@ button, input, select, textarea {
    ========================================================================== */
 .cinematic-hero {
   position: relative;
-  min-height: 58vh;
+  min-height: 56vh;
   display: flex;
   align-items: center;
-  padding: 3.5rem 0 3.5rem 0;
+  padding: 4.2rem 0 3.8rem 0;
   overflow: hidden;
 }
 
@@ -341,7 +341,7 @@ button, input, select, textarea {
   position: absolute;
   inset: 0;
   background: 
-    linear-gradient(to bottom, rgba(11, 15, 23, 0.76) 0%, rgba(11, 15, 23, 0.96) 100%),
+    linear-gradient(to bottom, rgba(11, 15, 23, 0.72) 0%, rgba(11, 15, 23, 0.95) 100%),
     url('../assets/gallery/galeria-01.jpg') center/cover no-repeat;
   z-index: 0;
   filter: contrast(105%) brightness(90%);
@@ -349,161 +349,37 @@ button, input, select, textarea {
 
 [data-theme="light"] .hero-bg-scrim {
   background: 
-    linear-gradient(to bottom, rgba(244, 246, 249, 0.85) 0%, rgba(244, 246, 249, 0.98) 100%),
+    linear-gradient(to bottom, rgba(244, 246, 249, 0.82) 0%, rgba(244, 246, 249, 0.97) 100%),
     url('../assets/gallery/galeria-01.jpg') center/cover no-repeat;
 }
 
-.hero-grid-split {
+.hero-inner {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  gap: 2.5rem;
-}
-
-@media (min-width: 992px) {
-  .hero-grid-split {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 3.5rem;
-  }
-}
-
-.hero-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
-  background: rgba(56, 189, 248, 0.12);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  border-radius: var(--radius-full);
-  color: var(--accent-cyan);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 1.1rem;
-  width: fit-content;
-}
-
-.hero-eyebrow-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent-cyan);
-  box-shadow: 0 0 8px var(--accent-cyan);
+  max-width: 840px;
 }
 
 .hero-big-title {
-  font-size: clamp(2rem, 3.4vw, 2.9rem);
+  font-size: clamp(2rem, 3.8vw, 3.15rem);
   font-weight: 800;
   letter-spacing: -0.025em;
   margin-bottom: 1rem;
-  line-height: 1.16;
-  color: var(--text-main);
-}
-
-.hero-gradient-span {
-  background: linear-gradient(135deg, #38BDF8 0%, #0284C7 50%, #34D399 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  line-height: 1.15;
 }
 
 .hero-lead-text {
-  font-size: clamp(0.98rem, 1.25vw, 1.12rem);
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
   color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 1.8rem;
-  max-width: 620px;
+  max-width: 660px;
+  margin-bottom: 2rem;
+  line-height: 1.55;
 }
 
-.hero-lead-text strong {
-  color: var(--text-main);
-}
-
-.hero-trust-row {
+.hero-cta-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1.25rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  font-weight: 600;
-  margin-top: 0.25rem;
-}
-
-.hero-trust-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.trust-check {
-  color: #10B981;
-  font-weight: 800;
-  font-size: 0.95rem;
-}
-
-/* Columna del Logo Oficial en el Banner Principal */
-.hero-brand-card-col {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-logo-box {
-  width: 100%;
-  max-width: 440px;
-  background: #000000;
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem;
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45), 0 0 35px rgba(56, 189, 248, 0.15);
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-logo-box:hover {
-  border-color: var(--accent-cyan);
-  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.55), 0 0 45px rgba(56, 189, 248, 0.25);
-  transform: translateY(-3px);
-}
-
-.hero-logo-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  border-radius: var(--radius-sm);
-}
-
-@media (max-width: 991px) {
-  .hero-grid-split {
-    text-align: center;
-  }
-  .hero-eyebrow {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .hero-cta-row {
-    justify-content: center;
-  }
-  .hero-trust-row {
-    justify-content: center;
-  }
-  .hero-brand-card-col {
-    order: -1;
-    margin-bottom: 1.5rem;
-  }
-  .hero-logo-box {
-    max-width: 320px;
-  }
 }
 
 /* Tarjetas rápidas dentro del hero */
