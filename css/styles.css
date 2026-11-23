@@ -1140,6 +1140,18 @@ button, input, select, textarea {
   display: block;
 }
 
+.footer-ig-handle {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-ig-handle:hover {
+  color: var(--accent-cyan);
+}
+
 .footer-cta-card {
   display: flex;
   flex-direction: column;
