@@ -143,6 +143,7 @@ button, input, select, textarea {
   gap: 1.25rem;
 }
 
+/* Contenedor del isotipo/logo corporativo */
 .brand-wrap {
   display: flex;
   align-items: center;
@@ -152,6 +153,7 @@ button, input, select, textarea {
   text-decoration: none;
 }
 
+/* Logo oficial: Fusión óptica 'screen' para eliminar el fondo negro y fundirlo en el banner */
 .brand-logo-img {
   height: 52px;
   width: auto;
@@ -167,6 +169,7 @@ button, input, select, textarea {
   transform: scale(1.03);
 }
 
+/* Modo claro: Pastilla oscura para mantener contraste del logo metálico */
 [data-theme="light"] .brand-wrap {
   background: #0B0F17;
   padding: 4px 8px;
