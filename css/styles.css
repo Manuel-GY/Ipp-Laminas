@@ -156,9 +156,10 @@ button, input, select, textarea {
   height: 52px;
   width: auto;
   max-width: 180px;
-  border-radius: 8px;
   display: block;
   object-fit: contain;
+  mix-blend-mode: screen;
+  filter: contrast(110%);
   transition: transform 0.25s ease;
 }
 
@@ -175,6 +176,7 @@ button, input, select, textarea {
 
 [data-theme="light"] .brand-logo-img {
   height: 44px;
+  mix-blend-mode: normal;
 }
 
 .arch-nav {
